@@ -1,26 +1,44 @@
 from contextlib import contextmanager
 from io import StringIO
-#from streamlit.report_thread import REPORT_CONTEXT_ATTR_NAME
-
+# from streamlit.report_thread import REPORT_CONTEXT_ATTR_NAME
 from threading import current_thread
-
 import streamlit as st
-
+import json
+import requests
+from streamlit_option_menu import option_menu
+from streamlit_lottie import st_lottie
 from fer import Video
 from fer import FER
-
+from pathlib import Path
 import matplotlib.pyplot as plt
 import os
 import sys
 import tempfile
 
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"]{
+background-image: url("https://images.pexels.com/photos/2749481/pexels-photo-2749481.jpeg");
+backround-size: cover;
+}
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Sidebar
+selected = option_menu(
+    menu_title="TUGAS BESAR PENGOLAHAN CITRA DIGITAL - Kelompok 5 - The Saham",
+    options=["Muchamad Diaz Adhari - 211511042",
+             "Mochamad Hafidh Dwyanto - 211511043", "Uqyanzie Bintang KFF - 211511062"],
+    icons=["user", "user", "user"],
+    menu_icon="cast",
+    default_index=0,
+    orientation="horizontal",
+
+)
+
 # Menambahkan judul dan deskripsi
-st.title("TUGAS BESAR PENGOLAHAN CITRA DIGITAL")
-st.title("Kelompok 5 - The Saham")
-st.write("Mochamad Hafidh Dwyanto - 211511043")
-st.write("Muchamad Diaz Adhari    - 211511044")
-st.write("Uqyanzie Bintang KFF    - 211511062")
-st.write("Challenges in Representation Learning: A report on three machine learning contests")
+st.title("Challenges in Representation Learning: A report on three machine learning contests")
 
 uploaded_file = st.file_uploader(
     "Silahkan Upload Video disini", type=["mp4", "mkv", "mov"], accept_multiple_files=False)
