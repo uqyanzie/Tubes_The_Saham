@@ -28,7 +28,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 # Sidebar
 selected = option_menu(
     menu_title="TUGAS BESAR PENGOLAHAN CITRA DIGITAL - Kelompok 5 - The Saham",
-    options=["Muchamad Diaz Adhari - 211511042",
+    options=["Muchamad Diaz Adhari - 211511044",
              "Mochamad Hafidh Dwyanto - 211511043", "Uqyanzie Bintang KFF - 211511062"],
     icons=["user", "user", "user"],
     menu_icon="cast",
